@@ -1,0 +1,62 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="BLOCKLY_TILESET_TYPE" id="+7N(rkNJn;[O`~WSjG%f">0;16;16;0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</variable><variable type="BLOCKLY_TILESET_TYPE" id="Z^Bdn/zOrfrNIjl(z)%^">1;16;16;6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666</variable><variable type="BLOCKLY_TILESET_TYPE" id="!HR.5}cW?/[hh}E.vc!I">2;16;16;5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555</variable><variable type="BLOCKLY_TILESET_TYPE" id="i,#PVET%TJu7BQU+YaUg">3;16;16;2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222</variable><variable type="BLOCKLY_TILESET_TYPE" id="##gqAzYMbpMu4#*_;#yH">4;16;16;7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777</variable><variable id="^B:^N{=6lxjWZ-J-9Y3.">Player</variable><variable id="BYB5}7+{r02}2hx|d)7,">CurrentLevel</variable><variable type="KIND_SpriteKind" id="Dq2RUTw0$Zgcx00ndBH.">Player</variable><variable type="KIND_SpriteKind" id="zR5?0S1R?Y)]0o;(4v+L">Projectile</variable><variable type="KIND_SpriteKind" id="qenbuPaqPO):oc8X9*Ey">Food</variable><variable type="KIND_SpriteKind" id="XQ.EF{!q^tKm6OsR?2=!">Enemy</variable></variables><block type="function_definition" x="0" y="16"><mutation name="Startlevel" functionid="zPGmWiiZm[a4OO:DR~,R"/><field name="function_name">Startlevel</field><statement name="STACK"><block type="variables_set"><field name="VAR" id="^B:^N{=6lxjWZ-J-9Y3.">Player</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . 2 2 2 2 2 2 . . . . . . 
+. . . . 2 f 2 2 f 2 . . . . . . 
+. . . . 1 1 1 1 1 1 . . . . . . 
+. . . . 1 1 1 1 1 1 . . . . . . 
+. . 2 2 2 1 1 1 1 1 . . . . . . 
+. . . . 2 2 2 2 1 1 . . . . . . 
+. . . . 2 2 2 2 2 . . . . . . . 
+. . . . 2 2 2 2 2 . . . . . . . 
+. . . . 2 . . . 2 . . . . . . . 
+. . . . 2 . . . 2 . . . . . . . 
+. . . . 2 . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . 2 2 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="camerafollow"><value name="sprite"><shadow type="variables_get"><field name="VAR" id="^B:^N{=6lxjWZ-J-9Y3.">Player</field></shadow></value><next><block type="game_control_sprite"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="2" _input_init="true"></mutation><value name="sprite"><shadow type="variables_get"><field name="VAR" id="^B:^N{=6lxjWZ-J-9Y3.">Player</field></shadow></value><value name="vx"><shadow type="math_number"><field name="NUM">100</field></shadow></value><value name="vy"><shadow type="math_number"><field name="NUM">0</field></shadow></value><next><block type="Sprite_blockCombine_change"><field name="property">Sprite.ay@set</field><value name="mySprite"><block type="variables_get"><field name="VAR" id="^B:^N{=6lxjWZ-J-9Y3.">Player</field></block></value><value name="value"><shadow type="math_number"><field name="NUM">350</field></shadow></value><next><block type="controls_if"><mutation elseif="1" else="1"/><value name="IF0"><shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow><block type="logic_compare"><field name="OP">EQ</field><value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="variables_get"><field name="VAR" id="BYB5}7+{r02}2hx|d)7,">CurrentLevel</field></block></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block></value><statement name="DO0"><block type="tilemap_editor"><field name="tilemap">tiles.createTilemap(
+            hex`200010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003000000000003000000000000000000000300000000000000000000000000000101010101010101010101010101010101010000000000000000000000030000000000000000000000000000000000000000000000000000000000000101010100000000000000000000000000000000000000000000000300000000000000000000000000000000000000000003000000000000000300010101000000000000000000000000000000000000000101010101010101010000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000001000000000000000000000000000000000100000000000000000000000000000100000000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000001030000000000000000000000000301000000000000000000020101010101010101010101010101010101010101010101010101010101010101`,
+            img`
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . 2 2 2 2 . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 2 2 2 . . . . . . . . . . . . . 
+. . . . . . 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . 
+. . . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . 2 . . . . . . . . . . . . . . 2 . . . . . . . . . . 
+. . . . . . 2 . . . . . . . . . . . . . . 2 . . . . . . . . . . 
+. . . . . . 2 . . . . . . . . . . . . . . 2 . . . . . . . . . . 
+. . . . . . 2 . . . . . . . . . . . . . . 2 . . . . . . . . . . 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+`,
+            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4],
+            TileScale.Sixteen
+        )</field></block></statement><value name="IF1"><shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow><block type="logic_compare"><field name="OP">EQ</field><value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="variables_get"><field name="VAR" id="BYB5}7+{r02}2hx|d)7,">CurrentLevel</field></block></value><value name="B"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block></value><statement name="DO1"><block type="tilemap_editor"><field name="tilemap">tiles.createTilemap(
+            hex`1000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`,
+            img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,
+            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4],
+            TileScale.Sixteen
+        )</field></block></statement></block></next></block></next></block></next></block></next></block></statement></block><block type="pxt-on-start" x="0" y="16"><statement name="HANDLER"><block type="function_call"><mutation name="Startlevel" functionid="zPGmWiiZm[a4OO:DR~,R"/></block></statement></block><block type="keyonevent" x="40" y="236"><field name="button">controller.A</field><field name="event">ControllerButtonEvent.Pressed</field><statement name="HANDLER"><block type="controls_if"><mutation else="1"/><value name="IF0"><shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow></value></block></statement></block></xml>
