@@ -114,10 +114,40 @@ namespace myTiles {
 . . . . a a a a a a a a a . . . 
 `
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    Present = sprites.create(img`
+9 9 2 9 9 9 9 2 2 9 9 9 9 9 2 9 
+9 9 2 9 9 9 9 2 2 9 9 9 9 9 2 9 
+9 9 2 9 9 9 9 2 2 2 9 9 9 2 9 9 
+9 9 9 2 2 2 2 2 2 2 2 2 2 2 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+`, SpriteKind.Projectile)
+    Present.setPosition(Santa.x, Santa.y)
+    Present.ax = 100
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprite.destroy()
+    otherSprite.destroy()
+    info.changeScoreBy(1)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Santa.vy == 0) {
         Santa.vy = -150
     }
+})
+scene.onHitWall(SpriteKind.Projectile, function (sprite) {
+    sprite.destroy()
 })
 function Startlevel () {
     scene.cameraFollowSprite(Santa)
@@ -237,6 +267,7 @@ function Startlevel () {
         tiles.setTileAt(value, myTiles.tile0)
     }
 }
+let Present: Sprite = null
 let Santa: Sprite = null
 let CurrentLevel = 0
 CurrentLevel = 0
