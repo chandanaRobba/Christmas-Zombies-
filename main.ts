@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const Present = SpriteKind.create()
+}
 namespace myTiles {
     //% blockIdentity=images._tile
     export const tile0 = img`
@@ -121,18 +124,13 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 2 2 2 2 2 
 9 9 2 9 9 
 9 9 2 9 9 
-`, SpriteKind.Projectile)
+`, SpriteKind.Present)
     Present.setPosition(Santa.x, Santa.y)
     Present.ax = 100
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprite.destroy()
-    otherSprite.destroy()
-    info.changeScoreBy(1)
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Santa.vy == 0) {
-        Santa.vy = -150
+        Santa.vy = -155
     }
 })
 scene.onHitWall(SpriteKind.Projectile, function (sprite) {
@@ -256,6 +254,15 @@ function Startlevel () {
         tiles.setTileAt(value, myTiles.tile0)
     }
 }
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
+    CurrentLevel += 1
+    Startlevel()
+})
+sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprite.destroy()
+    otherSprite.destroy()
+    info.changeScoreBy(1)
+})
 let Present: Sprite = null
 let Santa: Sprite = null
 let CurrentLevel = 0
