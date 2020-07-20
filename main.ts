@@ -115,10 +115,8 @@ namespace myTiles {
 `
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (true) {
-    	
-    } else {
-    	
+    if (Santa.vy == 0) {
+        Santa.vy = -150
     }
 })
 function Startlevel () {
