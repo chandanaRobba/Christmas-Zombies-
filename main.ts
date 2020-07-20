@@ -174,7 +174,9 @@ function Startlevel () {
             TileScale.Sixteen
         ))
     } else {
-    	
+        for (let index = 0; index < 4; index++) {
+        	
+        }
     }
 }
 let Player: Sprite = null
