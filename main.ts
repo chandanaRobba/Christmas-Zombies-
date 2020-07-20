@@ -116,22 +116,11 @@ namespace myTiles {
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Present = sprites.create(img`
-9 9 2 9 9 9 9 2 2 9 9 9 9 9 2 9 
-9 9 2 9 9 9 9 2 2 9 9 9 9 9 2 9 
-9 9 2 9 9 9 9 2 2 2 9 9 9 2 9 9 
-9 9 9 2 2 2 2 2 2 2 2 2 2 2 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 2 9 9 9 9 9 9 9 
+9 9 2 9 9 
+9 9 2 9 9 
+2 2 2 2 2 
+9 9 2 9 9 
+9 9 2 9 9 
 `, SpriteKind.Projectile)
     Present.setPosition(Santa.x, Santa.y)
     Present.ax = 100
