@@ -147,6 +147,10 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Present2.setPosition(Santa.x, Santa.y)
     Present2.ax = 100
 })
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
+    CurrentLevel += 1
+    Startlevel()
+})
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
     game.over(false)
 })
