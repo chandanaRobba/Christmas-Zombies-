@@ -175,10 +175,43 @@ function ZombieSpawn () {
 . 7 7 . . . . . . . . 7 7 7 . . 
 `, SpriteKind.Enemy)
     zombielist = sprites.allOfKind(SpriteKind.Enemy)
+    tiles.placeOnRandomTile(Zombie, myTiles.tile3)
     for (let value of zombielist) {
-        tiles.placeOnRandomTile(value, myTiles.tile3)
+        value.vx = Math.randomRange(1, 20)
+        if (value.isHittingTile(CollisionDirection.Right)) {
+            value.vx = Math.randomRange(-1, -20)
+        }
+        if (value.isHittingTile(CollisionDirection.Left)) {
+            value.vx = Math.randomRange(1, 20)
+        }
     }
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    Present2 = sprites.create(img`
+9 9 2 9 9 
+9 9 2 9 9 
+2 2 2 2 2 
+9 9 2 9 9 
+9 9 2 9 9 
+`, SpriteKind.Present)
+    Present2.setPosition(Santa.x, Santa.y)
+    Present2.ax = 100
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
+    CurrentLevel += 1
+    Startlevel()
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
+    game.over(false)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Santa.vy == 0) {
+        Santa.vy = -155
+    }
+})
+scene.onHitWall(SpriteKind.Projectile, function (sprite) {
+    sprite.destroy()
+})
 function Startlevel () {
     scene.cameraFollowSprite(Santa)
     info.setLife(3)
@@ -297,32 +330,6 @@ function Startlevel () {
         tiles.setTileAt(value2, myTiles.tile0)
     }
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    Present2 = sprites.create(img`
-9 9 2 9 9 
-9 9 2 9 9 
-2 2 2 2 2 
-9 9 2 9 9 
-9 9 2 9 9 
-`, SpriteKind.Present)
-    Present2.setPosition(Santa.x, Santa.y)
-    Present2.ax = 100
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
-    CurrentLevel += 1
-    Startlevel()
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
-    game.over(false)
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Santa.vy == 0) {
-        Santa.vy = -155
-    }
-})
-scene.onHitWall(SpriteKind.Projectile, function (sprite) {
-    sprite.destroy()
-})
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
     CurrentLevel += 1
     Startlevel()
