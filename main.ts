@@ -311,6 +311,29 @@ controller.moveSprite(Santa, 100, 0)
 Santa.setFlag(SpriteFlag.BounceOnWall, false)
 Startlevel()
 game.onUpdate(function () {
+    Santa.setImage(img`
+. . . . 2 2 2 2 2 2 . . . . . . 
+. . . . 2 f 2 2 f 2 . . . . . . 
+. . . . 1 1 1 1 1 1 . . . . . . 
+. . . . 1 1 1 1 1 1 . . . . . . 
+. . 2 2 2 1 1 1 1 1 . . . . . . 
+. . . . 2 2 2 2 1 1 . . . . . . 
+. . . . 2 2 2 2 2 . . . . . . . 
+. . . . 2 2 2 2 2 . . . . . . . 
+. . . . 2 . . . 2 . . . . . . . 
+. . . . 2 . . . 2 . . . . . . . 
+. . . . 2 . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . 2 2 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    if (true) {
+    	
+    } else {
+    	
+    }
     if (Santa.isHittingTile(CollisionDirection.Left) || Santa.isHittingTile(CollisionDirection.Right)) {
         Santa.vy = 0
         Santa.ay = 0
@@ -334,6 +357,9 @@ game.onUpdate(function () {
 . . . . . . . . . . . . . . . . 
 `)
     } else {
+    	
+    }
+    if (true) {
     	
     }
 })
