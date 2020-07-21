@@ -331,6 +331,8 @@ game.onUpdate(function () {
 `)
     if (true) {
     	
+    } else if (false) {
+    	
     } else {
     	
     }
