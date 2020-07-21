@@ -509,6 +509,8 @@ function Startlevel () {
         100,
         true
         )
+        tiles.placeOnTile(coin, value22)
+        tiles.setTileAt(value22, myTiles.tile0)
     }
 }
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
