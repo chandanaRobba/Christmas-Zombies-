@@ -155,7 +155,6 @@ namespace myTiles {
 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
 `
 }
-let zombielist: Sprite[] = []
 function ZombieSpawn () {
     Zombie = sprites.create(img`
 . . . . . . . 7 7 7 7 7 . . . . 
@@ -175,37 +174,11 @@ function ZombieSpawn () {
 . . 7 . . . . . . . . 7 7 . . . 
 . 7 7 . . . . . . . . 7 7 7 . . 
 `, SpriteKind.Enemy)
-    sprite_list = sprites.allOfKind(SpriteKind.Enemy)
+    zombielist = sprites.allOfKind(SpriteKind.Enemy)
     for (let value of zombielist) {
         tiles.placeOnRandomTile(value, myTiles.tile3)
     }
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    Present2 = sprites.create(img`
-9 9 2 9 9 
-9 9 2 9 9 
-2 2 2 2 2 
-9 9 2 9 9 
-9 9 2 9 9 
-`, SpriteKind.Present)
-    Present2.setPosition(Santa.x, Santa.y)
-    Present2.ax = 100
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
-    CurrentLevel += 1
-    Startlevel()
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
-    game.over(false)
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Santa.vy == 0) {
-        Santa.vy = -155
-    }
-})
-scene.onHitWall(SpriteKind.Projectile, function (sprite) {
-    sprite.destroy()
-})
 function Startlevel () {
     scene.cameraFollowSprite(Santa)
     info.setLife(3)
@@ -320,10 +293,36 @@ function Startlevel () {
         game.over(true)
     }
     tiles.placeOnRandomTile(Santa, myTiles.tile4)
-    for (let value of tiles.getTilesByType(myTiles.tile4)) {
-        tiles.setTileAt(value, myTiles.tile0)
+    for (let value2 of tiles.getTilesByType(myTiles.tile4)) {
+        tiles.setTileAt(value2, myTiles.tile0)
     }
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    Present2 = sprites.create(img`
+9 9 2 9 9 
+9 9 2 9 9 
+2 2 2 2 2 
+9 9 2 9 9 
+9 9 2 9 9 
+`, SpriteKind.Present)
+    Present2.setPosition(Santa.x, Santa.y)
+    Present2.ax = 100
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
+    CurrentLevel += 1
+    Startlevel()
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
+    game.over(false)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Santa.vy == 0) {
+        Santa.vy = -155
+    }
+})
+scene.onHitWall(SpriteKind.Projectile, function (sprite) {
+    sprite.destroy()
+})
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
     CurrentLevel += 1
     Startlevel()
@@ -334,7 +333,7 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     info.changeScoreBy(1)
 })
 let Present2: Sprite = null
-let sprite_list: Sprite[] = []
+let zombielist: Sprite[] = []
 let Zombie: Sprite = null
 let Santa: Sprite = null
 let CurrentLevel = 0
