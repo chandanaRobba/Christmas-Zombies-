@@ -331,6 +331,9 @@ function Startlevel () {
     for (let value2 of tiles.getTilesByType(myTiles.tile4)) {
         tiles.setTileAt(value2, myTiles.tile0)
     }
+    for (let value2 of sprites.allOfKind(SpriteKind.coins)) {
+        value2.destroy()
+    }
     for (let value22 of tiles.getTilesByType(myTiles.tile7)) {
         coin = sprites.create(img`
 . . . . . . . . . . . . . . . . 
