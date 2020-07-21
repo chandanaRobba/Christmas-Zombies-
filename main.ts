@@ -311,6 +311,7 @@ controller.moveSprite(Santa, 100, 0)
 Santa.setFlag(SpriteFlag.BounceOnWall, false)
 Startlevel()
 game.onUpdate(function () {
+    // Basic Santa sprite (walking/standing)
     Santa.setImage(img`
 . . . . 2 2 2 2 2 2 . . . . . . 
 . . . . 2 f 2 2 f 2 . . . . . . 
@@ -334,6 +335,26 @@ game.onUpdate(function () {
         Santa.setImage(img`
 . . . . 2 2 2 2 2 2 . . . . . . 
 . . . . 2 f 2 2 f 2 . . . . . . 
+. . . . 1 1 1 1 1 1 . 3 3 3 . . 
+. . . . 1 1 1 1 1 1 . 3 3 3 . . 
+. 3 3 3 2 1 1 1 1 1 . 3 3 3 . . 
+3 3 3 3 2 2 2 2 1 1 . 3 3 3 . . 
+3 3 3 3 2 2 2 2 2 3 3 3 3 3 . . 
+3 3 . . 2 2 2 2 2 3 3 3 3 3 . . 
+3 3 . . 2 . . . 2 3 3 3 3 . . . 
+3 3 3 . 2 . . . 2 . . . . . . . 
+3 3 3 . 2 . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . . 2 . . . . . . . 
+. . . 2 . . . 2 2 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    } else if (Santa.x % 2 == 0) {
+        // Basic Santa sprite (walking/standing)
+        Santa.setImage(img`
+. . . . 2 2 2 2 2 2 . . . . . . 
+. . . . 2 f 2 2 f 2 . . . . . . 
 . . . . 1 1 1 1 1 1 . . . . . . 
 . . . . 1 1 1 1 1 1 . . . . . . 
 . . 2 2 2 1 1 1 1 1 . . . . . . 
@@ -349,8 +370,6 @@ game.onUpdate(function () {
 . . . 2 . . . 2 2 . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `)
-    } else if (Santa.x % 2 == 0) {
-    	
     } else {
     	
     }
@@ -377,9 +396,10 @@ game.onUpdate(function () {
 . . . . . . . . . . . . . . . . 
 `)
     } else {
-    	
+        Santa.ay = 350
     }
-    if (true) {
-    	
+    if (Santa.vx < 0 || Santa.isHittingTile(CollisionDirection.Left)) {
+        Santa.image.flipX()
+        Santa.setImage(Santa.image)
     }
 })
