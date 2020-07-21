@@ -61,21 +61,21 @@ namespace myTiles {
 `
     //% blockIdentity=images._tile
     export const tile3 = img`
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `
     //% blockIdentity=images._tile
@@ -155,8 +155,30 @@ namespace myTiles {
 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
 `
 }
+let zombielist: Sprite[] = []
 function ZombieSpawn () {
-	
+    Zombie = sprites.create(img`
+. . . . . . . 7 7 7 7 7 . . . . 
+. . . . . . 7 f 7 7 f . . . . . 
+. . . . . . 7 7 7 7 7 7 7 . . . 
+. . . . . 7 7 7 7 7 7 7 7 . . . 
+7 7 7 7 7 7 7 7 7 7 7 7 7 . . . 
+7 . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+7 7 . . . 7 7 7 7 7 7 7 7 7 7 . 
+. 7 7 . . . 7 7 7 7 7 . . . 7 . 
+. . 7 7 7 . . . 7 . 7 7 7 7 7 . 
+. . . 7 7 . . 7 7 7 . 7 7 7 . . 
+. . . . . . . 7 7 7 . . . 7 . . 
+. . . . 7 7 7 7 7 7 . . . . . . 
+. . . 7 7 7 7 7 7 7 7 . . . . . 
+. . 7 7 7 . . . . . 7 7 . . . . 
+. . 7 . . . . . . . . 7 7 . . . 
+. 7 7 . . . . . . . . 7 7 7 . . 
+`, SpriteKind.Enemy)
+    sprite_list = sprites.allOfKind(SpriteKind.Enemy)
+    for (let value of zombielist) {
+        tiles.placeOnRandomTile(value, myTiles.tile3)
+    }
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Present2 = sprites.create(img`
@@ -312,6 +334,8 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     info.changeScoreBy(1)
 })
 let Present2: Sprite = null
+let sprite_list: Sprite[] = []
+let Zombie: Sprite = null
 let Santa: Sprite = null
 let CurrentLevel = 0
 CurrentLevel = 0
