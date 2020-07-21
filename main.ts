@@ -136,6 +136,9 @@ namespace myTiles {
 7 7 7 5 2 2 7 7 7 7 7 7 5 5 2 2 
 `
 }
+function ZombieSpawn () {
+	
+}
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Present2 = sprites.create(img`
 9 9 2 9 9 
@@ -406,4 +409,7 @@ game.onUpdate(function () {
         Santa.image.flipX()
         Santa.setImage(Santa.image)
     }
+})
+game.onUpdateInterval(5000, function () {
+    ZombieSpawn()
 })
