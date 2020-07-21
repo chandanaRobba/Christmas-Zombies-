@@ -1,5 +1,6 @@
 namespace SpriteKind {
     export const Present = SpriteKind.create()
+    export const coins = SpriteKind.create()
 }
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -330,8 +331,25 @@ function Startlevel () {
     for (let value2 of tiles.getTilesByType(myTiles.tile4)) {
         tiles.setTileAt(value2, myTiles.tile0)
     }
-    for (let value2 of tiles.getTilesByType(myTiles.tile7)) {
-    	
+    for (let value22 of tiles.getTilesByType(myTiles.tile7)) {
+        coin = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . f f f f f f f . . . . . 
+. . . f 5 5 5 5 5 5 5 f . . . . 
+. . f 5 5 4 4 4 4 4 5 5 f . . . 
+. f 5 5 5 5 5 5 5 5 5 5 5 f . . 
+. f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+. f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+. f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+. f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+. f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+. f 5 5 5 5 5 5 5 5 5 5 5 f . . 
+. . f 5 5 4 4 4 4 5 5 5 f . . . 
+. . . f 5 5 5 5 5 5 5 f . . . . 
+. . . . f f f f f f f . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.coins)
     }
 }
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
@@ -343,6 +361,7 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     otherSprite.destroy()
     info.changeScoreBy(1)
 })
+let coin: Sprite = null
 let Present2: Sprite = null
 let zombielist: Sprite[] = []
 let Zombie: Sprite = null
