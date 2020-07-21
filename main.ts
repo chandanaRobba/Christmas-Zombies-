@@ -137,15 +137,15 @@ namespace myTiles {
 `
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    Present = sprites.create(img`
+    Present2 = sprites.create(img`
 9 9 2 9 9 
 9 9 2 9 9 
 2 2 2 2 2 
 9 9 2 9 9 
 9 9 2 9 9 
 `, SpriteKind.Present)
-    Present.setPosition(Santa.x, Santa.y)
-    Present.ax = 100
+    Present2.setPosition(Santa.x, Santa.y)
+    Present2.ax = 100
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
     game.over(false)
@@ -285,7 +285,7 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     otherSprite.destroy()
     info.changeScoreBy(1)
 })
-let Present: Sprite = null
+let Present2: Sprite = null
 let Santa: Sprite = null
 let CurrentLevel = 0
 CurrentLevel = 0
@@ -310,3 +310,30 @@ Santa = sprites.create(img`
 controller.moveSprite(Santa, 100, 0)
 Santa.setFlag(SpriteFlag.BounceOnWall, false)
 Startlevel()
+game.onUpdate(function () {
+    if (Santa.isHittingTile(CollisionDirection.Left) || Santa.isHittingTile(CollisionDirection.Right)) {
+        Santa.vy = 0
+        Santa.ay = 0
+        // Santa climbing sprite image below
+        Santa.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . 1 1 . . . . . . . . . . 
+. . . . 2 1 . 2 . . . . . . . . 
+. . . . 2 2 2 1 . . . . . . . . 
+. . . 1 1 2 1 . . . . . . . . . 
+. . . 1 1 2 . . . . . . . . . . 
+. . . 1 2 2 . 2 2 . . . . . . . 
+. . . 1 2 2 2 1 1 . . . . . . . 
+. . . 1 2 2 1 1 . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    } else {
+    	
+    }
+})
