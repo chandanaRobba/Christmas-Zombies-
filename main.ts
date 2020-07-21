@@ -177,6 +177,7 @@ function ZombieSpawn () {
     zombielist = sprites.allOfKind(SpriteKind.Enemy)
     tiles.placeOnRandomTile(Zombie, myTiles.tile3)
     for (let value of zombielist) {
+        value.vy = 350
         value.vx = Math.randomRange(1, 20)
         if (value.isHittingTile(CollisionDirection.Right)) {
             value.vx = Math.randomRange(-1, -20)
