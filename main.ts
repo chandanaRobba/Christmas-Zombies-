@@ -507,7 +507,7 @@ function Startlevel () {
 . . . . . . . . . . . . . . . . 
 `],
         100,
-        false
+        true
         )
     }
 }
