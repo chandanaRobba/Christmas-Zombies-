@@ -188,6 +188,10 @@ function ZombieSpawn () {
         }
     }
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSprite) {
+    otherSprite.destroy()
+    info.changeScoreBy(1)
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Present2 = sprites.create(img`
 9 9 2 9 9 
