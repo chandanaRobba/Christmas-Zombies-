@@ -187,6 +187,9 @@ function ZombieSpawn () {
             value.vx = Math.randomRange(1, 20)
         }
     }
+    for (let value2 of tiles.getTilesByType(myTiles.tile3)) {
+        tiles.setTileAt(value2, myTiles.tile0)
+    }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSprite) {
     otherSprite.destroy()
