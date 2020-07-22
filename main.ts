@@ -241,6 +241,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         Santa.vy = -155
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.life, function (sprite, otherSprite) {
+    otherSprite.destroy()
+    info.changeLifeBy(1)
+})
 scene.onHitWall(SpriteKind.Projectile, function (sprite) {
     sprite.destroy()
 })
