@@ -204,7 +204,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 9 9 2 9 9 
 `, SpriteKind.Present)
     Present2.setPosition(Santa.x, Santa.y)
-    Present2.ax = 100
+    Present2.vx = 200
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
     CurrentLevel += 1
