@@ -178,22 +178,22 @@ namespace myTiles {
 }
 function ZombieSpawn () {
     Zombie = sprites.create(img`
-. . . . . . f f f f . . . . . . 
-. . . . f f f 2 2 f f f . . . . 
-. . . f f f 2 2 2 2 f f f . . . 
-. . f f f e e e e e e f f f . . 
-. . f f e 2 2 2 2 2 2 e e f . . 
-. . f e 2 f f f f f f 2 e f . . 
-. . f f f f c c c c f f f f . . 
-. f f c f b f 7 7 f b f c f f . 
-. f c c 7 1 f 7 7 f 1 7 c c f . 
-. . f c c 7 7 7 7 7 7 c c f . . 
-. . . f c 7 7 2 2 7 7 c f . . . 
-. . c c f c 7 7 7 7 c f c c . . 
-. . 7 7 f c c c c c c f 7 7 . . 
-. . 7 7 f c c c c c c f 7 7 . . 
-. . . . . f f f f f f . . . . . 
-. . . . . f f . . f f . . . . . 
+. . . . . f f f f . . . . . 
+. . . f f b b b b f f . . . 
+. . f b b b b b b b b f . . 
+. f b b b b b b b b b b f . 
+. f b b b d b b d b b b f . 
+f b b b b 7 7 7 7 b b b b f 
+f b b c 7 7 7 7 7 7 c b b f 
+f b b f 7 f 7 7 f 7 f b b f 
+f b b 7 1 f 7 7 f 1 4 b b f 
+. f b f 7 7 7 7 7 7 f b f . 
+. f 7 f 7 7 7 7 7 7 f 7 f . 
+. 7 7 f 6 9 9 9 9 6 f 7 7 . 
+. 7 d c 9 9 9 9 9 9 c d 7 . 
+. 7 f b 3 b 3 b 3 b b f 7 . 
+. . f f 3 b 3 b 3 3 f f . . 
+. . . . f f b b f f . . . . 
 `, SpriteKind.Enemy)
     tiles.placeOnRandomTile(Zombie, myTiles.tile3)
     zombielist = sprites.allOfKind(SpriteKind.Enemy)
@@ -216,11 +216,22 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSp
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Present2 = sprites.create(img`
-9 9 2 9 9 
-9 9 2 9 9 
-2 2 2 2 2 
-9 9 2 9 9 
-9 9 2 9 9 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . 3 3 . 3 . . 
+. . . . . . . . . 3 . 3 3 . 3 . 
+. . . . . . . . . . . . 3 . . . 
+f f f f f f f f f f f f f f f f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f f f f f f f f f f f 3 3 f f f 
+f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
+f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
+f f f f f f f f f f f 3 3 f f f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f f f f f f f f f f f f f f f f 
 `, SpriteKind.Present)
     Present2.setPosition(Santa.x, Santa.y)
     if (flipSantaX) {
@@ -608,22 +619,38 @@ game.splash("How to play:")
 game.showLongText("Move Santa around with arrow keys; Use A/Space-bar to jump; Use the B/Enter key to shoot; Repeatedly hit space-bar to climb; look for blue orbs that can increase Santas's lifespan;  Watch out for red holes from which zombies can spawn from!  ", DialogLayout.Top)
 CurrentLevel = 0
 Santa = sprites.create(img`
-. . . . 2 2 2 2 2 2 . . . . . . 
-. . . . 2 f 2 2 f 2 . . . . . . 
-. . . . 1 1 1 1 1 1 . . . . . . 
-. . . . 1 1 1 1 1 1 . . . . . . 
-. . 2 2 2 1 1 1 1 1 . . . . . . 
-. . . . 2 2 2 2 1 1 . . . . . . 
-. . . . 2 2 2 2 2 . . . . . . . 
-. . . . 2 2 2 2 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . 2 2 . . . . . . . 
-. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . f f f f f . . . . . . . . . . . . . . . . . . 
+. . . . . . . . f 2 2 2 2 2 f . . . . . . . . . . . . . . . . . 
+. . . . . . . f 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . . . 
+. . . . . f f f f f 2 2 2 2 2 2 f . . . . . . . . . . . . . . . 
+. . . . f 1 1 f 2 2 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . 
+. . . . f 1 1 f 2 2 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . 
+. . . . f 1 f f f f f f f f f f f f f . . . . . . . . . . . . . 
+. . . . . f f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . . f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . . 
+. . . . . . . f 1 1 d d d d d d d 1 f . . . . . . . . . . . . . 
+. . . . . . . f 1 1 d f d d d f d 1 f . . . . . . . . . . . . . 
+. . . . . . f 1 1 1 3 d d 2 d d 3 1 1 f . . . . . . . . . . . . 
+. . . . . . f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . f f f 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . . 
+. . . . f 7 7 f 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . . 
+. . . f 7 7 f 2 f 1 1 1 1 1 1 1 1 f 2 f . . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 f 1 1 1 1 1 1 f 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 2 f f 1 1 1 f 2 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 2 2 2 f f f 2 2 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 1 f f f f f 5 5 5 f f f f 1 f . . . . . . . . . . . 
+. . f 7 7 f 1 1 f f f f 5 5 5 f f f 1 1 f . . . . . . . . . . . 
+. . f f 7 7 f f 2 2 2 2 2 2 2 2 2 2 f f . . . . . . . . . . . . 
+. . . . f f f f f 2 2 2 f f f 2 2 2 f . . . . . . . . . . . . . 
+. . . . . . . . f 2 2 2 f . f 2 2 2 f . . . . . . . . . . . . . 
+. . . . . . . . f f f f f . f f f f f . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
 controller.moveSprite(Santa, 100, 0)
 Santa.setFlag(SpriteFlag.BounceOnWall, false)
