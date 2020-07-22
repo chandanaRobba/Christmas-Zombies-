@@ -210,62 +210,6 @@ f b b 7 1 f 7 7 f 1 4 b b f
         }
     }
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSprite) {
-    otherSprite.destroy()
-    info.changeScoreBy(1)
-})
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    Present2 = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . 3 3 . 3 . . 
-. . . . . . . . . 3 . 3 3 . 3 . 
-. . . . . . . . . . . . 3 . . . 
-f f f f f f f f f f f f f f f f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f f f f f f f f f f f 3 3 f f f 
-f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
-f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
-f f f f f f f f f f f 3 3 f f f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f f f f f f f f f f f f f f f f 
-`, SpriteKind.Present)
-    Present2.setPosition(Santa.x, Santa.y)
-    if (flipSantaX) {
-        Present2.vx = -200
-    } else {
-        Present2.vx = 200
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
-    CurrentLevel += 1
-    Startlevel()
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
-    game.over(false)
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Santa.vy == 0) {
-        Santa.vy = -155
-    }
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.life, function (sprite, otherSprite) {
-    otherSprite.destroy()
-    info.changeLifeBy(1)
-})
-scene.onHitWall(SpriteKind.Projectile, function (sprite) {
-    sprite.destroy()
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-    for (let value3 of zombielist) {
-        tiles.placeOnRandomTile(value3, myTiles.tile3)
-    }
-    pause(2000)
-})
 function Startlevel () {
     scene.cameraFollowSprite(Santa)
     info.setLife(3)
@@ -386,8 +330,8 @@ function Startlevel () {
     for (let value23 of sprites.allOfKind(SpriteKind.coins)) {
         value23.destroy()
     }
-    for (let value23 of sprites.allOfKind(SpriteKind.life)) {
-        value23.destroy()
+    for (let value232 of sprites.allOfKind(SpriteKind.life)) {
+        value232.destroy()
     }
     for (let value2222 of tiles.getTilesByType(myTiles.tile7)) {
         coin = sprites.create(img`
@@ -570,8 +514,8 @@ function Startlevel () {
         tiles.placeOnTile(coin, value2222)
         tiles.setTileAt(value2222, myTiles.tile0)
     }
-    for (let value2222 of tiles.getTilesByType(myTiles.tile8)) {
-        life = sprites.create(img`
+    for (let value22222 of tiles.getTilesByType(myTiles.tile8)) {
+        life2 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . 6 6 6 6 . . . . . . 
 . . . . 6 6 6 5 5 6 6 6 . . . . 
@@ -589,13 +533,69 @@ function Startlevel () {
 . . . . . . 6 6 6 6 . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.life)
-        tiles.placeOnTile(life, value2222)
-        tiles.setTileAt(value2222, myTiles.tile0)
+        tiles.placeOnTile(life2, value22222)
+        tiles.setTileAt(value22222, myTiles.tile0)
     }
-    for (let value232 of sprites.allOfKind(SpriteKind.Enemy)) {
-        value232.destroy()
+    for (let value2322 of sprites.allOfKind(SpriteKind.Enemy)) {
+        value2322.destroy()
     }
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSprite) {
+    otherSprite.destroy()
+    info.changeScoreBy(1)
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    Present2 = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . 3 3 . 3 . . 
+. . . . . . . . . 3 . 3 3 . 3 . 
+. . . . . . . . . . . . 3 . . . 
+f f f f f f f f f f f f f f f f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f f f f f f f f f f f 3 3 f f f 
+f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
+f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
+f f f f f f f f f f f 3 3 f f f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
+f f f f f f f f f f f f f f f f 
+`, SpriteKind.Present)
+    Present2.setPosition(Santa.x, Santa.y)
+    if (flipSantaX) {
+        Present2.vx = -200
+    } else {
+        Present2.vx = 200
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
+    CurrentLevel += 1
+    Startlevel()
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
+    game.over(false)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Santa.vy == 0) {
+        Santa.vy = -155
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.life, function (sprite, otherSprite) {
+    otherSprite.destroy()
+    info.changeLifeBy(1)
+})
+scene.onHitWall(SpriteKind.Projectile, function (sprite) {
+    sprite.destroy()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    for (let value3 of zombielist) {
+        tiles.placeOnRandomTile(value3, myTiles.tile3)
+    }
+    pause(2000)
+})
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
     CurrentLevel += 1
     Startlevel()
@@ -605,10 +605,10 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     otherSprite.destroy()
     info.changeScoreBy(1)
 })
-let life: Sprite = null
-let coin: Sprite = null
 let flipSantaX = false
 let Present2: Sprite = null
+let life2: Sprite = null
+let coin: Sprite = null
 let zombielist: Sprite[] = []
 let Zombie: Sprite = null
 let Santa: Sprite = null
@@ -660,22 +660,38 @@ pause(100)
 game.onUpdate(function () {
     // Basic Santa sprite (walking/standing)
     Santa.setImage(img`
-. . . . 2 2 2 2 2 2 . . . . . . 
-. . . . 2 f 2 2 f 2 . . . . . . 
-. . . . 1 1 1 1 1 1 . . . . . . 
-. . . . 1 1 1 1 1 1 . . . . . . 
-. . 2 2 2 1 1 1 1 1 . . . . . . 
-. . . . 2 2 2 2 1 1 . . . . . . 
-. . . . 2 2 2 2 2 . . . . . . . 
-. . . . 2 2 2 2 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . 2 2 . . . . . . . 
-. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . f f f f f . . . . . . . . . . . . . . . . . . 
+. . . . . . . . f 2 2 2 2 2 f . . . . . . . . . . . . . . . . . 
+. . . . . . . f 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . . . 
+. . . . . f f f f f 2 2 2 2 2 2 f . . . . . . . . . . . . . . . 
+. . . . f 1 1 f 2 2 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . 
+. . . . f 1 1 f 2 2 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . 
+. . . . f 1 f f f f f f f f f f f f f . . . . . . . . . . . . . 
+. . . . . f f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . . f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . . 
+. . . . . . . f 1 1 d d d d d d d 1 f . . . . . . . . . . . . . 
+. . . . . . . f 1 1 d f d d d f d 1 f . . . . . . . . . . . . . 
+. . . . . . f 1 1 1 3 d d 2 d d 3 1 1 f . . . . . . . . . . . . 
+. . . . . . f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . f f f 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . . 
+. . . . f 7 7 f 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . . 
+. . . f 7 7 f 2 f 1 1 1 1 1 1 1 1 f 2 f . . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 f 1 1 1 1 1 1 f 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 2 f f 1 1 1 f 2 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 2 2 2 f f f 2 2 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 1 f f f f f 5 5 5 f f f f 1 f . . . . . . . . . . . 
+. . f 7 7 f 1 1 f f f f 5 5 5 f f f 1 1 f . . . . . . . . . . . 
+. . f f 7 7 f f 2 2 2 2 2 2 2 2 2 2 f f . . . . . . . . . . . . 
+. . . . f f f f f 2 2 2 f f f 2 2 2 f . . . . . . . . . . . . . 
+. . . . . . . . f 2 2 2 f . f 2 2 2 f . . . . . . . . . . . . . 
+. . . . . . . . f f f f f . f f f f f . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `)
     if (Santa.vy < 0) {
         // Santa jumping sprite image below
@@ -700,22 +716,38 @@ game.onUpdate(function () {
     } else if (Santa.x % 2 == 0) {
         // Basic Santa sprite (walking/standing)
         Santa.setImage(img`
-. . . . 2 2 2 2 2 2 . . . . . . 
-. . . . 2 f 2 2 f 2 . . . . . . 
-. . . . 1 1 1 1 1 1 . . . . . . 
-. . . . 1 1 1 1 1 1 . . . . . . 
-. . 2 2 2 1 1 1 1 1 . . . . . . 
-. . . . 2 2 2 2 1 1 . . . . . . 
-. . . . 2 2 2 2 2 . . . . . . . 
-. . . . 2 2 2 2 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . . 2 . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . . 2 . . . . . . . 
-. . . 2 . . . 2 2 . . . . . . . 
-. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . f f f f f . . . . . . . . . . . . . . . . . . 
+. . . . . . . . f 2 2 2 2 2 f . . . . . . . . . . . . . . . . . 
+. . . . . . . f 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . . . 
+. . . . . f f f f f 2 2 2 2 2 2 f . . . . . . . . . . . . . . . 
+. . . . f 1 1 f 2 2 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . 
+. . . . f 1 1 f 2 2 2 2 2 2 2 2 2 f . . . . . . . . . . . . . . 
+. . . . f 1 f f f f f f f f f f f f f . . . . . . . . . . . . . 
+. . . . . f f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . . f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . . 
+. . . . . . . f 1 1 d d d d d d d 1 f . . . . . . . . . . . . . 
+. . . . . . . f 1 1 d f d d d f d 1 f . . . . . . . . . . . . . 
+. . . . . . f 1 1 1 3 d d 2 d d 3 1 1 f . . . . . . . . . . . . 
+. . . . . . f 1 1 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . 
+. . . . . f f f 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . . 
+. . . . f 7 7 f 1 1 1 1 1 1 1 1 1 1 f . . . . . . . . . . . . . 
+. . . f 7 7 f 2 f 1 1 1 1 1 1 1 1 f 2 f . . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 f 1 1 1 1 1 1 f 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 2 f f 1 1 1 f 2 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 2 f 2 2 2 2 f f f 2 2 2 f 2 f . . . . . . . . . . . 
+. . f 7 7 f 1 f f f f f 5 5 5 f f f f 1 f . . . . . . . . . . . 
+. . f 7 7 f 1 1 f f f f 5 5 5 f f f 1 1 f . . . . . . . . . . . 
+. . f f 7 7 f f 2 2 2 2 2 2 2 2 2 2 f f . . . . . . . . . . . . 
+. . . . f f f f f 2 2 2 f f f 2 2 2 f . . . . . . . . . . . . . 
+. . . . . . . . f 2 2 2 f . f 2 2 2 f . . . . . . . . . . . . . 
+. . . . . . . . f f f f f . f f f f f . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `)
     } else {
     	
