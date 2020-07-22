@@ -1,6 +1,7 @@
 namespace SpriteKind {
     export const Present = SpriteKind.create()
     export const coins = SpriteKind.create()
+    export const life = SpriteKind.create()
 }
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -552,7 +553,7 @@ function Startlevel () {
         tiles.setTileAt(value2222, myTiles.tile0)
     }
     for (let value2222 of tiles.getTilesByType(myTiles.tile8)) {
-        coin = sprites.create(img`
+        life = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . 6 6 6 6 . . . . . . 
 . . . . 6 6 6 5 5 6 6 6 . . . . 
@@ -569,8 +570,8 @@ function Startlevel () {
 . . . . 6 6 8 8 8 8 6 6 . . . . 
 . . . . . . 6 6 6 6 . . . . . . 
 . . . . . . . . . . . . . . . . 
-`, SpriteKind.coins)
-        tiles.placeOnTile(coin, value2222)
+`, SpriteKind.life)
+        tiles.placeOnTile(life, value2222)
         tiles.setTileAt(value2222, myTiles.tile0)
     }
     for (let value232 of sprites.allOfKind(SpriteKind.Enemy)) {
@@ -586,6 +587,7 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     otherSprite.destroy()
     info.changeScoreBy(1)
 })
+let life: Sprite = null
 let coin: Sprite = null
 let flipSantaX = false
 let Present2: Sprite = null
