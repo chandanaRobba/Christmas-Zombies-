@@ -175,10 +175,12 @@ function ZombieSpawn () {
 . . 7 . . . . . . . . 7 7 . . . 
 . 7 7 . . . . . . . . 7 7 7 . . 
 `, SpriteKind.Enemy)
-    zombielist = sprites.allOfKind(SpriteKind.Enemy)
     tiles.placeOnRandomTile(Zombie, myTiles.tile3)
+    zombielist = sprites.allOfKind(SpriteKind.Enemy)
     for (let value of zombielist) {
-        value.vy = 350
+        value.ay = 350
+    }
+    for (let value of zombielist) {
         value.vx = Math.randomRange(1, 20)
         if (value.isHittingTile(CollisionDirection.Right)) {
             value.vx = Math.randomRange(-1, -20)
@@ -220,6 +222,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onHitWall(SpriteKind.Projectile, function (sprite) {
     sprite.destroy()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    for (let value of zombielist) {
+        tiles.placeOnRandomTile(value, myTiles.tile3)
+    }
+    pause(2000)
 })
 function Startlevel () {
     scene.cameraFollowSprite(Santa)
@@ -563,6 +572,8 @@ Santa = sprites.create(img`
 controller.moveSprite(Santa, 100, 0)
 Santa.setFlag(SpriteFlag.BounceOnWall, false)
 Startlevel()
+ZombieSpawn()
+pause(100)
 game.onUpdate(function () {
     // Basic Santa sprite (walking/standing)
     Santa.setImage(img`
