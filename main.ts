@@ -177,22 +177,22 @@ namespace myTiles {
 }
 function ZombieSpawn () {
     Zombie = sprites.create(img`
-. . . . . . . 7 7 7 7 7 . . . . 
-. . . . . . 7 f 7 7 f . . . . . 
-. . . . . . 7 7 7 7 7 7 7 . . . 
-. . . . . 7 7 7 7 7 7 7 7 . . . 
-7 7 7 7 7 7 7 7 7 7 7 7 7 . . . 
-7 . 7 7 7 7 7 7 7 7 7 7 7 . . . 
-7 7 . . . 7 7 7 7 7 7 7 7 7 7 . 
-. 7 7 . . . 7 7 7 7 7 . . . 7 . 
-. . 7 7 7 . . . 7 . 7 7 7 7 7 . 
-. . . 7 7 . . 7 7 7 . 7 7 7 . . 
-. . . . . . . 7 7 7 . . . 7 . . 
-. . . . 7 7 7 7 7 7 . . . . . . 
-. . . 7 7 7 7 7 7 7 7 . . . . . 
-. . 7 7 7 . . . . . 7 7 . . . . 
-. . 7 . . . . . . . . 7 7 . . . 
-. 7 7 . . . . . . . . 7 7 7 . . 
+. . . . . . f f f f . . . . . . 
+. . . . f f f 2 2 f f f . . . . 
+. . . f f f 2 2 2 2 f f f . . . 
+. . f f f e e e e e e f f f . . 
+. . f f e 2 2 2 2 2 2 e e f . . 
+. . f e 2 f f f f f f 2 e f . . 
+. . f f f f c c c c f f f f . . 
+. f f c f b f 7 7 f b f c f f . 
+. f c c 7 1 f 7 7 f 1 7 c c f . 
+. . f c c 7 7 7 7 7 7 c c f . . 
+. . . f c 7 7 2 2 7 7 c f . . . 
+. . c c f c 7 7 7 7 c f c c . . 
+. . 7 7 f c c c c c c f 7 7 . . 
+. . 7 7 f c c c c c c f 7 7 . . 
+. . . . . f f f f f f . . . . . 
+. . . . . f f . . f f . . . . . 
 `, SpriteKind.Enemy)
     tiles.placeOnRandomTile(Zombie, myTiles.tile3)
     zombielist = sprites.allOfKind(SpriteKind.Enemy)
