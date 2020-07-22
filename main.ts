@@ -216,22 +216,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSp
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Present2 = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . 3 3 . 3 . . 
-. . . . . . . . . 3 . 3 3 . 3 . 
-. . . . . . . . . . . . 3 . . . 
-f f f f f f f f f f f f f f f f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f f f f f f f f f f f 3 3 f f f 
-f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
-f 3 3 3 3 3 3 3 3 3 f 3 3 f 3 f 
-f f f f f f f f f f f 3 3 f f f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f 9 9 9 9 9 9 9 9 9 f 3 3 f 9 f 
-f f f f f f f f f f f f f f f f 
+. 2 2 2 . . . . 
+f f f f f f f f 
+f 9 3 9 9 9 9 f 
+f 9 3 9 9 9 9 f 
+f 3 3 3 3 3 3 f 
+f 9 3 9 9 9 9 f 
+f 9 3 9 9 9 9 f 
+f f f f f f f f 
 `, SpriteKind.Present)
     Present2.setPosition(Santa.x, Santa.y)
     if (flipSantaX) {
@@ -605,6 +597,11 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     otherSprite.destroy()
     info.changeScoreBy(1)
 })
+/**
+ * <---
+ * 
+ * here is non zombie child btw
+ */
 let life2: Sprite = null
 let coin: Sprite = null
 let flipSantaX = false
