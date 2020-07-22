@@ -201,6 +201,12 @@ function ZombieSpawn () {
     }
     for (let value2 of zombielist) {
         value2.vx = Math.randomRange(1, 20)
+        if (value2.isHittingTile(CollisionDirection.Right)) {
+            value2.vx = Math.randomRange(-1, -20)
+        }
+        if (value2.isHittingTile(CollisionDirection.Left)) {
+            value2.vx = Math.randomRange(1, 20)
+        }
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSprite) {
@@ -228,16 +234,6 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
     game.over(false)
-})
-scene.onHitWall(SpriteKind.Enemy, function (sprite) {
-    for (let value2 of zombielist) {
-        if (value2.isHittingTile(CollisionDirection.Right)) {
-            value2.vx = Math.randomRange(-1, -20)
-        }
-        if (value2.isHittingTile(CollisionDirection.Left)) {
-            value2.vx = Math.randomRange(1, 20)
-        }
-    }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Santa.vy == 0) {
@@ -552,6 +548,28 @@ function Startlevel () {
         100,
         true
         )
+        tiles.placeOnTile(coin, value2222)
+        tiles.setTileAt(value2222, myTiles.tile0)
+    }
+    for (let value2222 of tiles.getTilesByType(myTiles.tile8)) {
+        coin = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . 6 6 6 6 . . . . . . 
+. . . . 6 6 6 5 5 6 6 6 . . . . 
+. . . 7 7 7 7 6 6 6 6 6 6 . . . 
+. . 6 7 7 7 7 8 8 8 1 1 6 6 . . 
+. . 7 7 7 7 7 8 8 8 1 1 5 6 . . 
+. 6 7 7 7 7 8 8 8 8 8 5 5 6 6 . 
+. 6 7 7 7 8 8 8 6 6 6 6 5 6 6 . 
+. 6 6 7 7 8 8 6 6 6 6 6 6 6 6 . 
+. 6 8 7 7 8 8 6 6 6 6 6 6 6 6 . 
+. . 6 8 7 7 8 6 6 6 6 6 8 6 . . 
+. . 6 8 8 7 8 8 6 6 6 8 6 6 . . 
+. . . 6 8 8 8 8 8 8 8 8 6 . . . 
+. . . . 6 6 8 8 8 8 6 6 . . . . 
+. . . . . . 6 6 6 6 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.coins)
         tiles.placeOnTile(coin, value2222)
         tiles.setTileAt(value2222, myTiles.tile0)
     }
