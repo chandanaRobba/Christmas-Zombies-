@@ -531,8 +531,8 @@ function Startlevel () {
         tiles.placeOnTile(coin, value222)
         tiles.setTileAt(value222, myTiles.tile0)
     }
-    for (let value23 of sprites.allOfKind(SpriteKind.Enemy)) {
-        value23.destroy()
+    for (let value232 of sprites.allOfKind(SpriteKind.Enemy)) {
+        value232.destroy()
     }
 }
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
@@ -550,6 +550,8 @@ let zombielist: Sprite[] = []
 let Zombie: Sprite = null
 let Santa: Sprite = null
 let CurrentLevel = 0
+game.showLongText("Around Christmas in 2050, a virus broke out putting hundreds of children in a zombie-like state. Santa has the antidote and is the only person capable of saving the children. Since the children are too smart to accept the antidote in it's true form, he has to disguise it as presents.  ", DialogLayout.Full)
+game.showLongText("Santa found a much quicker way to heal all the children at once and that is by activating a mystery button that can rid all the children of the virus. However, to get to that button, he has to travel through a strange place full of infected children. ", DialogLayout.Full)
 CurrentLevel = 0
 Santa = sprites.create(img`
 . . . . 2 2 2 2 2 2 . . . . . . 
