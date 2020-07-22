@@ -375,6 +375,9 @@ function Startlevel () {
     for (let value23 of sprites.allOfKind(SpriteKind.coins)) {
         value23.destroy()
     }
+    for (let value23 of sprites.allOfKind(SpriteKind.life)) {
+        value23.destroy()
+    }
     for (let value2222 of tiles.getTilesByType(myTiles.tile7)) {
         coin = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -602,7 +605,7 @@ let CurrentLevel = 0
 game.showLongText("Around Christmas in 2050, a virus broke out putting hundreds of children in a zombie-like state. Santa has the antidote and is the only person capable of saving the children. Since the children are too smart to accept the antidote in it's true form, he has to disguise it as presents.  ", DialogLayout.Full)
 game.showLongText("Santa found a much quicker way to heal all the children at once and that is by activating a mystery button that can rid all the children of the virus. However, to get to that button, he has to travel through a strange place full of infected children. ", DialogLayout.Full)
 game.splash("How to play:")
-game.showLongText("Move Santa around with arrow keys; Use A/Spacebar to jump; Use the B/Enter key to shoot", DialogLayout.Top)
+game.showLongText("Move Santa around with arrow keys; Use A/Space-bar to jump; Use the B/Enter key to shoot; Repeatedly hit space-bar to climb; look for blue orbs that can increase Santas's lifespan;  Watch out for red holes from which zombies can spawn from!  ", DialogLayout.Top)
 CurrentLevel = 0
 Santa = sprites.create(img`
 . . . . 2 2 2 2 2 2 . . . . . . 
