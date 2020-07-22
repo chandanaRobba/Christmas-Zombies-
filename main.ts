@@ -201,12 +201,6 @@ function ZombieSpawn () {
     }
     for (let value2 of zombielist) {
         value2.vx = Math.randomRange(1, 20)
-        if (value2.isHittingTile(CollisionDirection.Right)) {
-            value2.vx = Math.randomRange(-1, -20)
-        }
-        if (value2.isHittingTile(CollisionDirection.Left)) {
-            value2.vx = Math.randomRange(1, 20)
-        }
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.coins, function (sprite, otherSprite) {
@@ -234,6 +228,16 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location) {
     game.over(false)
+})
+scene.onHitWall(SpriteKind.Enemy, function (sprite) {
+    for (let value2 of zombielist) {
+        if (value2.isHittingTile(CollisionDirection.Right)) {
+            value2.vx = Math.randomRange(-1, -20)
+        }
+        if (value2.isHittingTile(CollisionDirection.Left)) {
+            value2.vx = Math.randomRange(1, 20)
+        }
+    }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Santa.vy == 0) {
