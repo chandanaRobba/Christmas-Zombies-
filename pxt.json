@@ -2,7 +2,8 @@
     "name": "Zombie Christmas",
     "dependencies": {
         "device": "*",
-        "animation": "*"
+        "animation": "*",
+        "storyboard": "*"
     },
     "description": "",
     "files": [
