@@ -176,6 +176,11 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
+/**
+ * <---
+ * 
+ * here is non zombie child btw
+ */
 function ZombieSpawn () {
     Zombie = sprites.create(img`
 . . . . . f f f f . . . . . 
@@ -597,11 +602,6 @@ sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherS
     otherSprite.destroy()
     info.changeScoreBy(1)
 })
-/**
- * <---
- * 
- * here is non zombie child btw
- */
 let life2: Sprite = null
 let coin: Sprite = null
 let flipSantaX = false
