@@ -658,7 +658,7 @@ f b b 4 1 f d d f 1 4 b b f
 . . . . f f b b f f . . . . 
 `)
     otherSprite.say("yay!", 500)
-    pause(200)
+    pause(500)
     otherSprite.destroy()
     info.changeScoreBy(2)
 })
