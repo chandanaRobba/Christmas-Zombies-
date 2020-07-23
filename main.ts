@@ -175,6 +175,44 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
+    //% blockIdentity=images._tile
+    export const tile9 = img`
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+e 1 e 1 e 1 1 1 e e 1 e e 1 1 1 
+1 e 1 1 e e 1 1 e 1 e e e e e e 
+e e e e e 1 e e e e e e e e e e 
+f f f f f f f f f f f f f f f f 
+e f e e e f e e e e e e f e e e 
+e f e e e f e e e e e e f e e e 
+e f e e e f e e e e e e f e e e 
+f f f f f f f f f f f f f f f f 
+e e f e e e e e e f e e e e f e 
+e e f e e e e e e f e e e e f e 
+e e f e e e e e e f e e e e f e 
+f f f f f f f f f f f f f f f f 
+e f e e e e f e e e e e f e e e 
+e f e e e e f e e e e e f e e e 
+e f e e e e f e e e e e f e e e 
+`
+    //% blockIdentity=images._tile
+    export const tile10 = img`
+e e f e e e e f e e e f e e e e 
+f f f f f f f f f f f f f f f f 
+e e e f e e e e e f e e e e f e 
+e e e f e e e e e f e e e e f e 
+f f f f f f f f f f f f f f f f 
+e f e e e f e e e e e e f e e e 
+e f e e e f e e e e e e f e e e 
+e f e e e f e e e e e e f e e e 
+f f f f f f f f f f f f f f f f 
+e e f e e e e e e f e e e e f e 
+e e f e e e e e e f e e e e f e 
+e e f e e e e e e f e e e e f e 
+f f f f f f f f f f f f f f f f 
+e f e e e e f e e e e e f e e e 
+e f e e e e f e e e e e f e e e 
+e f e e e e f e e e e e f e e e 
+`
 }
 /**
  * <---
@@ -271,7 +309,7 @@ function Startlevel () {
     Santa.ay += 350
     if (CurrentLevel == 0) {
         tiles.setTilemap(tiles.createTilemap(
-            hex`200010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003080707070703040007070707070707000300000000000000000000000000000101010101010101010101010101010101010000000000000000000000030707000000000000000000000000000000000000000000000000000700000101010100000000000000000000000000000000000000000000000300070000000000000000000000000000000000000003070707070707070300010101000000000000000000000000000000000000000101010101010101010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003000707000000000000000000000000000000000000000000000000000000000101010100000000000000000000000000000000000700000000000000000000070707070000000000000000000000000000000000070000000000000000000007070707000000030007070707070707070700000301000000070707070700020101010101010101010101010101010101010101010101010101010101010101`,
+            hex`200010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003080707070703040007070707070707000300000000000000000000000000000909090909090909090909090909090909090000000000000000000000030707000000000000000000000000000000000000000000000000000700000909090900000000000000000000000000000000000000000000000300070000000000000000000000000000000000000003070707070707070300090909000000000000000000000000000000000000000909090909090909090000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003000707000000000000000000000000000000000000000000000000000000000909090900000000000000000000000000000000000700000000000000000000070707070000000000000000000000000000000000070000000000000000000007070707000000030007070707070707070700000309000000070707070700020909090909090909090909090909090909090909090a09090909090909090909`,
             img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -290,7 +328,7 @@ function Startlevel () {
 . . . . . . . . . . . . . . . . . . . . . 2 . . . . . . . . . . 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8],
+            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10],
             TileScale.Sixteen
         ))
     } else if (CurrentLevel == 1) {
@@ -314,7 +352,7 @@ function Startlevel () {
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `,
-            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8],
+            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10],
             TileScale.Sixteen
         ))
     } else if (CurrentLevel == 2) {
@@ -372,7 +410,7 @@ function Startlevel () {
 . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `,
-            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8],
+            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10],
             TileScale.Sixteen
         ))
     } else {
