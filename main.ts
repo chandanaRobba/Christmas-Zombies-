@@ -640,7 +640,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location
 sprites.onOverlap(SpriteKind.Present, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy()
     otherSprite.destroy()
-    info.changeScoreBy(1)
+    info.changeScoreBy(2)
 })
 let life2: Sprite = null
 let coin: Sprite = null
